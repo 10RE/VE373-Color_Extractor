@@ -13,9 +13,9 @@
 
 void delay_init();
     
-void delay_ms(uint8_t xms);
+void delay_ms(int xms);
     
-void delay_us(uint8_t xus);
+void delay_us(int xus);
 
 void setSYSCLK80MHzAndPBDIV(uint8_t n);
 

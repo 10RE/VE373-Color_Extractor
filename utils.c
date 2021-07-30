@@ -4,7 +4,7 @@
 #define CLK_FREQ_MS 20000 // 20Mhz / 1000 (1ms)
 #define CLK_FREQ_US 20 // 20Mhz / 1000000 (1us)
 
-uint8_t timer_n, timer_flag = 0;
+int timer_n, timer_flag = 0;
 
 /* timer interrupt handler */ 
 #pragma interrupt T3_ISR ipl3AUTO vector 12
@@ -28,7 +28,7 @@ void delay_init() {
     IEC0bits.T3IE = 1;
 }
     
-void delay_ms(uint8_t xms) {
+void delay_ms(int xms) {
     timer_n = xms;
     timer_flag = 0;
     PR3 = CLK_FREQ_MS;
@@ -37,7 +37,7 @@ void delay_ms(uint8_t xms) {
 }
 
 
-void delay_us(uint8_t xus) {
+void delay_us(int xus) {
     timer_n = xus;
     timer_flag = 0;
     PR3 = CLK_FREQ_US;
