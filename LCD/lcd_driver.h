@@ -13,10 +13,6 @@
 
 #define LCD_WIDTH   240 //LCD width
 #define LCD_HEIGHT  320 //LCD height
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
     
 void LCD_WriteData_Word(UWORD da);
 
@@ -29,10 +25,6 @@ void LCD_SetBackLight(UWORD Value);
 
 void LCD_Clear(UWORD Color);
 void LCD_ClearWindow(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD color);
-   
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* LCD_DRIVER_H */
 

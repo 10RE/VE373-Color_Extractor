@@ -17,21 +17,13 @@
 #include "dev_config.h"
 #include "font.h"
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-    void init_LCD();
+void init_LCD();
     
-    void draw_color_block(const uint16_t x_start, const uint16_t y_start, const uint16_t x_end, const uint16_t y_end, const uint16_t color);
+void draw_color_block(const uint16_t x_start, const uint16_t y_start, const uint16_t x_end, const uint16_t y_end, const uint16_t color);
 
-    void write_str(const uint16_t x, const uint16_t y, const char *str, const UWORD color);
+void write_str(const uint16_t x, const uint16_t y, const char *str, const UWORD color);
     
-    void write_val(const uint16_t x, const uint16_t y, const uint8_t val);
-
-#ifdef	__cplusplus
-}
-#endif
+void write_val(const uint16_t x, const uint16_t y, const uint8_t val);
 
 #endif	/* GUI_H */
 

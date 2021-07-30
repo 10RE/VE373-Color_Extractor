@@ -10,10 +10,6 @@
 
 #include <stdint.h>
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
 typedef struct _tFont
 {    
   const uint8_t *table;
@@ -24,10 +20,6 @@ typedef struct _tFont
 
 extern sFONT Font20;
 
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* FONT_H */
 
