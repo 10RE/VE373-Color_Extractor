@@ -17,6 +17,7 @@ void delay_ms(uint8_t xms);
     
 void delay_us(uint8_t xus);
 
+void setSYSCLK80MHzAndPBDIV(uint8_t n);
 
 #endif	/* UTILS_H */
 

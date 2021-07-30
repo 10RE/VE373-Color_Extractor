@@ -45,4 +45,15 @@ void delay_us(uint8_t xus) {
     while (!timer_flag) {}
 }
 
-
+void setSYSCLK80MHzAndPBDIV(uint8_t n){
+    SYSKEY = 0x0;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+    OSCCONbits.PLLODIV = 0b000; // PLL output divisor = 1
+    OSCCONbits.PBDIV = n;    // PMCLK = SYSCLK / 4
+    OSCCONbits.PLLMULT = 0b101; // PLL output multiplier = 20
+    OSCCONbits.NOSC = 0b001;    // FRCPLL
+    OSCCONbits.OSWEN = 0b1;
+    while(OSCCONbits.OSWEN);
+    SYSKEY = 0x0;
+}
