@@ -9,13 +9,17 @@ void init_LCD(){
     LCD_Clear(0x0000);
 }
 
-void draw_color_block(const uint16_t x_start, const uint16_t y_start, const uint16_t x_end, const uint16_t y_end, const uint16_t color){
+void draw_color_block(const uint16_t x_start, const uint16_t y_start, const uint16_t x_end, const uint16_t y_end, const uint16_t color, const int frame){
     uint16_t xls = LCD_WIDTH - y_end - 1;
     uint16_t yls = x_start;
     uint16_t xle = LCD_WIDTH - y_start - 1;
     uint16_t yle = x_end;
     
     uint16_t tmp;
+    if (!frame){
+        LCD_ClearWindow(xls, yls, xle, yle, color);
+        return;
+    }
     for (tmp = xls; tmp <= xle; tmp ++) {
         LCD_DrawPaint(tmp, yls, 0xFFFF);
         LCD_DrawPaint(tmp, yls + 1, 0xFFFF);
@@ -46,7 +50,7 @@ void write_val(const uint16_t x, const uint16_t y, const uint8_t val) {
     return;
 }
 
-void write_str(const uint16_t x, const uint16_t y, const char *str, const UWORD color) {
+void write_str(const uint16_t x, const uint16_t y, const char *str, const uint16_t color) {
     if (x > LCD_WIDTH || y > LCD_HEIGHT) {
         return;
     }

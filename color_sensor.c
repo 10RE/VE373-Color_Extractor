@@ -172,7 +172,7 @@ void writeOneByte(uint8_t addr, uint8_t value){
 
 void getRGB(int* R, int* G, int* B){
     writeOneByte(0x01, 0xF6);
-    writeOneByte(0x03, 0x00);
+    writeOneByte(0x03, 0xAB);
     writeOneByte(0x0F, 0x03);
     writeOneByte(0x00, 0b00001011);
     delay_ms(40);
@@ -209,16 +209,4 @@ void getRGB(int* R, int* G, int* B){
     } else {
         *B = (int)bDouble;
     }
-    LCD_Clear(0x0000);
-    char str[100];
-    sprintf(str, "Ready: %d", bytes[0]&1);
-    write_str(5, 5, str, 0xFFFF);
-    sprintf(str, "Red: %d", *R);
-    write_str(5, 35, str, 0xF800);
-    sprintf(str, "Green: %d", *G);
-    write_str(5, 65, str, 0x07E0);
-    sprintf(str, "Blue: %d", *B);
-    write_str(5, 95, str, 0x001F);
-    
-    draw_color_block(200, 80, 280, 160, (((*R)>>3)<<11) + (((*G)>>2)<<5) + (((*B)>>3)));
 }
