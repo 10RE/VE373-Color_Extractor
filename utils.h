@@ -11,21 +11,13 @@
 #include <stdint.h>
 #include <p32xxxx.h>
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-    void delay_init();
+void delay_init();
     
-    void delay_ms(uint8_t xms);
+void delay_ms(int xms);
     
-    void delay_us(uint8_t xus);
+void delay_us(int xus);
 
-
-
-#ifdef	__cplusplus
-}
-#endif
+void setSYSCLK80MHzAndPBDIV(uint8_t n);
 
 #endif	/* UTILS_H */
 

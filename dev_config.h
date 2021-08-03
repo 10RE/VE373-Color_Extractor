@@ -26,38 +26,30 @@
 #define DEV_RST_PIN 2 //LATDbits.LATD3 // reset, put 1
 //#define DEV_BL_PIN  LATDbits.LATD4 // backlight
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-    void DEV_SPI_Init(void);
+void DEV_SPI_Init(void);
     
-    void DEV_Pin_Init(void);
+void DEV_Pin_Init(void);
 
-    void DEV_Digital_Write(int pin, UBYTE value);
-    //void DEV_Digital_Read(UBYTE pin);
+void DEV_Digital_Write(int pin, UBYTE value);
+//void DEV_Digital_Read(UBYTE pin);
 
-    /**
-     * SPI
-    **/
-    void DEV_SPI_WRITE(UBYTE dat);
+/**
+ * SPI
+**/
+void DEV_SPI_WRITE(UBYTE dat);
 
-    /**
-     * delay x ms
-    **/
-    void DEV_Delay_ms(UBYTE xms);
+/**
+ * delay x ms
+**/
+void DEV_Delay_ms(UBYTE xms);
     
-    void DEV_Delay_us(UBYTE xus);
+void DEV_Delay_us(UBYTE xus);
 
-    /**
-     * PWM_BL
-    **/
-    //void DEV_Set_PWM(_Value)  analogWrite(DEV_BL_PIN, _Value)
+/**
+ * PWM_BL
+**/
+//void DEV_Set_PWM(_Value)  analogWrite(DEV_BL_PIN, _Value)
 
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* DEV_CONFIG_H */
 
