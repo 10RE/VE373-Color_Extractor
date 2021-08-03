@@ -69,6 +69,20 @@ int main(){
         write_str(40, 220, "with knob", 0xFFFF);
         //LCD_Clear(0x0000);
         while(!confirmButton){
+            if (resetButton) {
+                delay_ms(1);
+                if (resetButton) {
+                    delay_ms(300);
+                    if (resetButton) {
+                        while (resetButton) {}
+                        release_ink(500, c_id);
+                        release_ink(500, m_id);
+                        release_ink(500, y_id);
+                        release_ink(500, k_id);
+                    }
+                }
+            }
+            
             int adc_val = read_ADC_val();
             set_LCD_brightness(adc_val);
 #if 0
